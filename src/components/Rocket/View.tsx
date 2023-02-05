@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 
+import Sidebar from "../GameView/Sidebar/Sidebar";
+
 import Results from "./Results";
 import Rocket from "./Rocket";
-import Sidebar from "./Sidebar";
 function randomNumber() {
   return Math.random() * 10;
 }
@@ -35,7 +36,7 @@ const View: React.FC = () => {
   return (
     <div style={{ height: "500px", width: "900px", background: "black" }}>
       <div style={{ display: "flex", height: "100%", width: "100%" }}>
-        <Sidebar onClick={handleClick} />
+        <Sidebar />
         <Rocket value={value} />
       </div>
       <Results />

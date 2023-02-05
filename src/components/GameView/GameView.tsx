@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { Flex, Stack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
-const RandomNumber = () => {
+import { Rocket } from "./Rocket";
+import { Sidebar } from "./Sidebar";
+
+const GameView: React.FC = () => {
   const [number, setNumber] = useState(Math.random() * 4);
   const [currentNumber, setCurrentNumber] = useState(1);
   const [intervalId, setIntervalId] = useState<any>(null);
@@ -21,6 +25,7 @@ const RandomNumber = () => {
       setCurrentNumber((prevCurrentNumber) =>
         prevCurrentNumber < number ? prevCurrentNumber + 0.01 : number,
       );
+      console.log(currentNumber);
     }, 50);
 
     setIntervalId(id);
@@ -38,20 +43,22 @@ const RandomNumber = () => {
   };
 
   return (
-    <div style={{ color: "black" }}>
-      <div>{currentNumber.toFixed(2)}</div>
-
-      {finalNumber === null && currentNumber === 1 ? (
-        <button onClick={handleBet}>Apostar</button>
-      ) : (
-        <button onClick={handleWithdraw}>Retirarse</button>
-      )}
-
-      {finalMessage === "Perdiste" && <div>Perdiste</div>}
-      {finalNumber !== null && <div>El valor final es: {finalNumber.toFixed(2)}</div>}
-      <button onClick={handleReset}>Reset</button>
-    </div>
+    <Stack height={500} width={900}>
+      <p>RocketView</p>
+      <p>RocketView</p>
+      <Stack direction="row" height={"100%"}>
+        <Sidebar
+          currentNumber={currentNumber}
+          finalNumber={finalNumber}
+          handleBet={handleBet}
+          handleReset={handleReset}
+          handleWithdraw={handleWithdraw}
+        />
+        <Rocket currentNumber={currentNumber} finalNumber={finalNumber} />
+      </Stack>
+      <Flex background={"grey"} height={10} />
+    </Stack>
   );
 };
 
-export default RandomNumber;
+export default GameView;
