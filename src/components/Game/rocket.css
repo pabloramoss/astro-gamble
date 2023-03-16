@@ -1,0 +1,57 @@
+/* Define la animación de despegue del cohete */
+@keyframes rocket-launch {
+  0% {
+    bottom: 0;
+    transform: rotateZ(0);
+  }
+  100% {
+    bottom: 70%;
+    transform: rotateZ(-10deg);
+  }
+}
+
+/* Define la animación de zigzagueo del cohete */
+@keyframes rocket-zigzag {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 10%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+/* Define la animación de explosión del cohete */
+@keyframes rocket-explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Aplica las animaciones a la imagen del cohete */
+.rocket {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.3s;
+}
+
+.rocket.rocket-animation {
+  animation: rocket-launch 2s ease-in-out forwards;
+}
+
+.rocket.rocket-animation:hover {
+  transform: translateX(-50%) rotateZ(-10deg);
+}
+
+.rocket.rocket-animation:active {
+  transform: translateX(-50%) rotateZ(-20deg);
+}

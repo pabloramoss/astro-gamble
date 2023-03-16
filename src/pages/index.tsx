@@ -4,6 +4,7 @@ import { Stack } from "@chakra-ui/react";
 
 import View from "@/components/Rocket/View";
 import GameView from "@/components/GameView/GameView";
+import RocketGame from "@/components/Game/RocketGame";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,8 @@ export default function Home() {
       </Head>
       <main>
         <Stack align="center" background="lightgrey" height="100vh" justify="center" width="100%">
-          <GameView />
+          {/* <GameView /> */}
+          <RocketGame />
         </Stack>
       </main>
     </>

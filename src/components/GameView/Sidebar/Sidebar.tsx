@@ -29,9 +29,9 @@ const Sidebar: React.FC<Props> = ({
         <Button>Max</Button>
       </Stack>
       {finalNumber === null && currentNumber === 1 ? (
-        <Button onClick={handleBet}>Bet</Button>
+        <Button onClick={handleBet}>Place Bet</Button>
       ) : (
-        <Button onClick={handleWithdraw}>Withdraw</Button>
+        <Button onClick={handleWithdraw}>Cash out</Button>
       )}
     </Stack>
   );
