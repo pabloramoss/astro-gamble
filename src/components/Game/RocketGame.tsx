@@ -1,4 +1,24 @@
 import React, { useState, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
+
+const move = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+
+const RocketImg = styled.img`
+  /* Estilos adicionales para la imagen */
+  &.rocket-animation {
+    animation: ${move} 2s ease-in-out infinite;
+  }
+`;
 
 const RocketGame = () => {
   const [countdown, setCountdown] = useState(3);
@@ -55,7 +75,7 @@ const RocketGame = () => {
   return (
     <div className="container">
       {!isLaunched && <div className="countdown">{countdown}</div>}
-      <img
+      <RocketImg
         alt="Rocket"
         className={`rocket ${isLaunched && !isExploded ? "rocket-animation" : ""} ${
           isExploded ? "rocket-explode" : ""
