@@ -13,10 +13,28 @@ const move = keyframes`
   }
 `;
 
+const launch = keyframes`
+  0% {
+    bottom: 0;
+    transform: rotateZ(0);
+  }
+  50% {
+    bottom: 70%;
+    transform: rotateZ(10deg);
+  }
+  100% {
+    bottom: 70%;
+    transform: rotateZ(0);
+  }
+`;
+
 const RocketImg = styled.img`
   /* Estilos adicionales para la imagen */
   &.rocket-animation {
     animation: ${move} 2s ease-in-out infinite;
+  }
+  &.rocket-launch {
+    animation: ${launch} 10s ease-in-out infinite;
   }
 `;
 
@@ -77,7 +95,7 @@ const RocketGame = () => {
       {!isLaunched && <div className="countdown">{countdown}</div>}
       <RocketImg
         alt="Rocket"
-        className={`rocket ${isLaunched && !isExploded ? "rocket-animation" : ""} ${
+        className={`rocket ${isLaunched && !isExploded ? "rocket-animation rocket-launch" : ""} ${
           isExploded ? "rocket-explode" : ""
         }`}
         src="/public/assets/rocket.jpg"

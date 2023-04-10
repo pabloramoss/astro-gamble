@@ -3,6 +3,8 @@ import { Badge, Stack } from "@chakra-ui/react";
 interface Props {
   currentNumber: number;
   finalNumber: number | null;
+
+  /* fix this code, component error */
 }
 const Rocket: React.FC<Props> = ({ currentNumber, finalNumber }) => {
   return (
